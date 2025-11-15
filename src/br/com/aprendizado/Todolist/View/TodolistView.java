@@ -4,7 +4,7 @@
  */
 package br.com.aprendizado.Todolist.View;
 
-import br.com.aprendizado.Todolist.Model.TodolistModel;
+import br.com.aprendizado.Todolist.Model.TodolistServiceImpl;
 import java.sql.SQLException;
 import java.lang.ClassNotFoundException;
 import java.sql.SQLException;
@@ -18,11 +18,11 @@ import java.sql.ResultSet; //Para o método SELECT futuro
  */
 public class TodolistView extends javax.swing.JFrame {
 
-    private TodolistModel todoList;
+    private TodolistServiceImpl todoList;
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TodolistView.class.getName());
 
-    public TodolistView(TodolistModel model) {
+    public TodolistView(TodolistServiceImpl model) {
         //1. Atribuição: Guarda a instância que foi "injetada" pelo main
         this.todoList = model;
         //2. Inicialização: o restante do código do construtor
@@ -172,18 +172,18 @@ public class TodolistView extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        TodolistModel todoList = new TodolistModel();
+        TodolistServiceImpl todoList = new TodolistServiceImpl();
 
-        if (todoList.testarConexao()) {
+       // if (todoList.testarConexao()) {
             // ...
-            System.out.println("Status: Conexão com MySQL OK.");
-            TodolistView todoView = new TodolistView(todoList);
+       //     System.out.println("Status: Conexão com MySQL OK.");
+       //     TodolistView todoView = new TodolistView(todoList);
 
             java.awt.EventQueue.invokeLater(() -> todoView.setVisible(true));
-        } else {
-            System.err.println("ERRO CRÍTICO: Falha ao conectar com o MySql.");
-            return;
-        }
+       // } else {
+       //     System.err.println("ERRO CRÍTICO: Falha ao conectar com o MySql.");
+       //     return;
+       // }
     }
 
     // Array para agrupar os JLabels de tarefas

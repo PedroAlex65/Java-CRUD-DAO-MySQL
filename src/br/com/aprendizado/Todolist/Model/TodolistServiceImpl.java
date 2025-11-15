@@ -14,12 +14,12 @@ import java.sql.ResultSet; //Para o método SELECT futuro
 import java.lang.ClassNotFoundException;
 import java.util.List;
 
-public class TodolistModel {
+public class TodolistServiceImpl implements TodolistService {
 
     List<String> tarefas = new ArrayList<>();
     private TarefaDAO tarefaDAO;
 
-    public TodolistModel() {
+    public TodolistServiceImpl() {
         this.tarefaDAO = new TarefaDAOImpl();
 
     }
@@ -29,10 +29,9 @@ public class TodolistModel {
             System.out.println("Aviso: Bloqueio por limite de 5 tarefas ou input vazio.");
             return;
         }
-
+        System.out.println("LOG: Regras de Negócio Aprovadas. Tentando INSERT no BD...");
         tarefaDAO.inserir(tarefa);
         carregarArquivo();
-
     }
 
     public void carregarArquivo() throws ClassNotFoundException, SQLException {

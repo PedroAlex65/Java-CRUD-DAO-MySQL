@@ -15,3 +15,5 @@ public interface TarefaDAO {
     public List<String> listarTodos() throws SQLException, ClassNotFoundException;
     public void removerUltima() throws SQLException, ClassNotFoundException;
 }
+
+
