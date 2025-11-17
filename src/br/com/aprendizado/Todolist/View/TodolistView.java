@@ -174,16 +174,16 @@ public class TodolistView extends javax.swing.JFrame {
     public static void main(String args[]) {
         TodolistServiceImpl todoList = new TodolistServiceImpl();
 
-       // if (todoList.testarConexao()) {
+        if (todoList.testarConexao()) {
             // ...
-       //     System.out.println("Status: Conexão com MySQL OK.");
-       //     TodolistView todoView = new TodolistView(todoList);
+            System.out.println("Status: Conexão com MySQL OK.");
+            TodolistView todoView = new TodolistView(todoList);
 
             java.awt.EventQueue.invokeLater(() -> todoView.setVisible(true));
-       // } else {
-       //     System.err.println("ERRO CRÍTICO: Falha ao conectar com o MySql.");
-       //     return;
-       // }
+        } else {
+            System.err.println("ERRO CRÍTICO: Falha ao conectar com o MySql.");
+           return;
+        }
     }
 
     // Array para agrupar os JLabels de tarefas
